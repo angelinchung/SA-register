@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style-match-.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display&family=Poppins:wght@200&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<title>Cola</title>
+	</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<style>
+.round-face {
+    display: block;
+    width: 290px;
+    height: 400px;
+    position: relative;
+
+    background:#FFFAF2;
+    border-radius: 10px;
+box-shadow: -5px 10px 30px 10px #C0C0C0;
+    margin: 20px;
+}
+img{
+  display: inline-block;
+  /*width: 100%;*/
+  /*height: auto;*/
+   margin: 10px; 
+}
+.card1 {
+  width: 300px;
+  margin: 0 auto;
+}
+.img1{
+	border-radius: 20px;
+}
+</style>
+
+	<body>
+		<div class="container">
+			<div class="side">
+				<div class="header">
+					<div class="avatar">
+						<img src="1.jpg" alt="This is the photo" width="60%">
+					</div>
+
+					<div class="title">BAYMAX</div>
+
+					<div class="icon" align="right">
+						<a href="#"><img src="s.png" alt="This is a icon"></a>
+						<a href="#"><img src="h.png" alt="This is a icon"></a>
+						<a href="#"><img src="u.png" alt="This is a icon"></a>
+					</div>
+				</div>
+
+				<div class="menu">
+<div id='app1'>
+					<ul>
+						<li v-on:click="makeRed" :class="{'active': isRed}">Match<li>
+						<li v-on:click="makeRed1" :class="{'active': isRed1}">Chat<li>
+						
+					</ul>
+<div v-if="isRed1==true" >
+<div class="round-face"></div>
+<p>  <input id="text"/ placeholder='enter message: ' style='margin-left: 30px;'>   <input type="button" value="sned" /></p>
+</div>
+<div v-else-if="isRed==true" >
+	<div class="card1">
+		<img class='img1' src="demo1.jpg" width="40%" height="100px">
+		<img class='img1' src="demo2.jpg" width="40%" height="100px">
+    </div>
+    <div class="card1">
+		<img class='img1' src="demo3.jpg" width="40%" height="100px">
+		<img class='img1' src="demo4.jpg" width="40%" height="100px">		
+    </div>
+    <div class="card1">
+		<img class='img1' src="demo5.jpg" width="40%" height="100px">
+		<img class='img1' src="demo6.jpg" width="40%" height="100px">		
+    </div>	
+</div>
+</div>
+<script>
+var app =new Vue({
+	el: "#app1",
+	data: {
+isRed: true,
+isRed1: false,
+	                     total: '0',
+		msg: 'Vue rock!',
+		userInput: [],
+selected : ""	,
+selected1:"",
+	},
+  methods: {
+    makeRed: function() {
+                this.isRed =!this.isRed;
+               if (this.isRed ==true){
+this.isRed1=false;
+}
+
+        },
+ makeRed1: function() {
+                this.isRed1 = !this.isRed1;
+               if (this.isRed1 ==true){
+this.isRed=false;
+}
+        },
+    inc() {
+      this.total++;
+      if (this.total==9)
+      {
+        this.total=0
+      }
+    },
+  }
+});
+</script>
+
+  
+
+
+				</div>	
+			</div>
+		
+
+		<div class="content">
+			<div id='app2'>
+				<div class="card" v-if="total==0">
+					<div class="user">
+						<img class="user" src="demo1.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">ABCD <span>20</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+				<div class="card" v-else-if="total==1">
+					<div class="user">
+						<img class="user" src="demo2.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">A!@#$ <span>21</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+				<div class="card" v-else-if="total==2">
+					<div class="user">
+						<img class="user" src="demo3.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">A!@#$12 <span>21</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+				<div class="card" v-else-if="total==3">
+					<div class="user">
+						<img class="user" src="demo4.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">A!@#$ <span>21</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+				<div class="card" v-else-if="total==4">
+					<div class="user">
+						<img class="user" src="demo5.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">A!@#$ <span>21</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+				<div class="card" v-else-if="total==5">
+					<div class="user">
+						<img class="user" src="demo6.jpg" alt="This is the photo">
+						<div class="profile">
+							<div class="name">A!@#$ <span>21</span></div>
+							<div class="local">
+								<img src="marker.png">
+								<span>Taoyuan</span>
+							</div>
+						</div>
+					</div>
+					<div class="buttons">
+						<div class="no">
+							<img v-on:click="inc" src="x.png">
+						</div>
+						<div class="like">
+							<img v-on:click="inc" src="heart.jpg" style='width:120px;height:60px'>
+						</div>
+					</div> 
+				</div>
+			</div>
+			<script>
+				var app =new Vue({
+			el: "#app2",
+			data: {
+	    	total: '0',
+		},
+	  	methods: {
+		    inc() {
+	      this.total++;
+	      if (this.total==5)
+	      {
+	        this.total=0
+	      }
+    },
+  }
+});
+			</script>
+		</div>
+		</div>
+	</body>
+</html>
